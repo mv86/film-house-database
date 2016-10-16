@@ -29,6 +29,16 @@ class Customer
     return nil
   end
 
+  def num_of_tickets
+    sql = "SELECT * FROM customers
+    INNER JOIN tickets ON 
+    customers.id = tickets.customer_id
+    WHERE customers.id = #{@id}"
+    tickets_bought = SqlRunner.run(sql)
+    total = tickets_bought.count
+    return total
+  end
+
   def self.all
     sql = "SELECT * FROM customers"
     customers = SqlRunner.run(sql)
