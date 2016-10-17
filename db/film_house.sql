@@ -11,7 +11,9 @@ CREATE TABLE customers (
 CREATE TABLE films (
   id SERIAL4 PRIMARY KEY,
   title VARCHAR(255),
-  price DECIMAL(4,2)
+  price DECIMAL(4,2),
+  show_time DECIMAL(4,2),
+  seats_unoccupied INT4
 );
 
 CREATE TABLE tickets (

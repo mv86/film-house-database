@@ -6,8 +6,8 @@ class Ticket
 
   def initialize(options)
     @id = options['id'].to_i
-    @customer_id = options.fetch('customer_id').to_i
-    @film_id = options.fetch('film_id').to_i
+    @customer_id = options['customer_id'].to_i
+    @film_id = options['film_id'].to_i
   end
 
   def save()
@@ -21,8 +21,23 @@ class Ticket
     @id = ticket['id'].to_i
   end
 
-  # def sell_ticket
-  #   sql = ""
+  # def charge_for_ticket
+  #   sql = "SELECT funds FROM customers
+  #   INNER JOIN tickets ON 
+  #   customers.id = tickets.customer_id
+  #   WHERE customers.id = #{@id}"
+  #   sql2 = "SELECT price FROM films
+  #   INNER JOIN tickets ON 
+  #   films.id = tickets.film_id
+  #   WHERE films.id = #{@id}"
+  #   customer_funds = SqlRunner.run(sql)
+  #   ticket_price = SqlRunner.run(sql2)
+  #   charge_for_ticket = customer_funds[0].to_i - ticket_price[0].to_i
+  #   sql3 = "UPDATE customers SET
+  #   name = '#{@name}',
+  #   funds = #{charge_for_ticket}
+  #   WHERE id = #{@id}"
+  #   SqlRunner.run(sql3)
   # end
 
   def self.all
